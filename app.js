@@ -12,7 +12,8 @@ arrList(fruits, p);
 inp.addEventListener('keydown', (event) => {
   const keyName = event.key;
   if (keyName == 'Enter') {
-    showmess(pm,`Елемент ${inp.value} додано у список`);
+
+    showmess(pm,`Елемент ${inp.value} додано у список`,'green');
 
     console.log(inp.value);
     fruits = addElem(fruits, inp);
@@ -23,6 +24,7 @@ inp.addEventListener('keydown', (event) => {
   if ((keyName == 'Delete') && candelete) {
    delbyvalue(fruits, onlyone);
    candelete = false;
+   showmess(pm,`Елемент ${onlyone}  видалено`,'red');
    inp.value = '';
    arrList(fruits, p);
   };
@@ -34,6 +36,7 @@ inp.oninput = function() {
    if (flist.length == 1) {
      candelete = true;
      onlyone = flist[0];
+     showmess(pm,`Натисніть Delete щоб видалити ${onlyone} `, 'blue');
    }
    else {
      candelete = false;
@@ -66,9 +69,10 @@ function delbyvalue(arr, val) {
    arr.splice(arr.indexOf(val), 1);
 };
 
-function showmess(paragr, txtmess){
-  paragr.style.opacity = 0;
+function showmess(paragr, txtmess, color){
   paragr.innerHTML = txtmess;
-  paragr.style.opacity = 1;
-
-}
+  paragr.style.color = color;
+setTimeout(function(){
+    paragr.innerHTML = '<br>';
+}, 4000);
+};
