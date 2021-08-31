@@ -58,3 +58,7 @@ function filterItems(arr, inp1) {
 function delbyvalue(arr, val) {
    arr.splice(arr.indexOf(val), 1);
 };
+
+function showmess(paragr, txtmess){
+  
+}
