@@ -6,7 +6,6 @@ let onlyone = '';
 
 arrList(fruits, p);
 
-
 inp.addEventListener('keydown', (event) => {
   const keyName = event.key;
   if (keyName == 'Enter') {
@@ -34,7 +33,6 @@ inp.oninput = function() {
      onlyone = '';
    };
 };
-
 
 function arrList(arr, paragr) {
   arr.sort();
