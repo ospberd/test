@@ -1,17 +1,24 @@
 let p =  document.getElementById("p2");
+let pm =  document.getElementById("pm");
+
 let inp = document.getElementById("filtre");
 let fruits = ["Яблоко", "Апельсин", "Слива", "Малина"];
 let candelete = false;
 let onlyone = '';
+
 
 arrList(fruits, p);
 
 inp.addEventListener('keydown', (event) => {
   const keyName = event.key;
   if (keyName == 'Enter') {
-    fruits = addElem(fruits, inp)
+    showmess(pm,`Елемент ${inp.value} додано у список`);
+
+    console.log(inp.value);
+    fruits = addElem(fruits, inp);
+
     arrList(fruits, p);
-  };
+    };
 
   if ((keyName == 'Delete') && candelete) {
    delbyvalue(fruits, onlyone);
@@ -60,5 +67,8 @@ function delbyvalue(arr, val) {
 };
 
 function showmess(paragr, txtmess){
-  
+  paragr.style.opacity = 0;
+  paragr.innerHTML = txtmess;
+  paragr.style.opacity = 1;
+
 }
