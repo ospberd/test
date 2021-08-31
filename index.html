@@ -5,11 +5,20 @@
     <title></title>
   </head>
   <body>
-
+<div id="List">
+ <p id="p2">Hello</p>
+</div>
   </body>
   <script type="text/javascript">
+    let p =  document.getElementById("p2");
     console.log('Hello')
     let fruits = ["Яблоко", "Апельсин", "Слива", "Малина"];
+    fruits = [...fruits, "Вишенька"];
+    fruits = [ "Ананас",...fruits];
+
+    fruits.forEach((item, i) => {
+    p.innerHTML += `<li>  ${item}  `
+    });
 
   </script>
 </html>
