@@ -14,7 +14,7 @@ inp.addEventListener('keydown', (event) => {
   };
 
   if ((keyName == 'Delete') && candelete) {
-   fruits.splice(fruits.indexOf(onlyone), 1);
+   delbyvalue(fruits, onlyone);
    candelete = false;
    inp.value = '';
    arrList(fruits, p);
@@ -53,4 +53,8 @@ function filterItems(arr, inp1) {
   return arr.filter(function(el) {
       return el.toLowerCase().indexOf(inp1.value.toLowerCase()) > -1;
   })
+};
+
+function delbyvalue(arr, val) {
+   arr.splice(arr.indexOf(val), 1);
 };
